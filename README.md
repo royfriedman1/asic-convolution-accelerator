@@ -11,7 +11,7 @@ The core takes a raster-scanned 8-bit grayscale image stream, runs a programmabl
 ## Highlights
 
 - **RTL** — synthesizable SystemVerilog: control FSM, interleaved 3-bank line buffer (write steering / reordering / read address logic), processing element (MAC), configuration register bank.
-- **Verification** — class-based testbench environment (agent/driver/monitor/scoreboard/coverage) for the accelerator and the processing element, SystemVerilog Assertions (SVA), a Python golden model used as the reference scoreboard, and gate-level simulation (GLS) against the synthesized netlist.
+- **Verification** — UVM-style, constrained-random class-based testbench environment (transaction / generator / driver / monitor / scoreboard / coverage, with `rand` fields and `constraint` blocks) for both the accelerator and the processing element, SystemVerilog Assertions (SVA) bound directly to the DUT for protocol/safety checking, a Python golden model used as the reference scoreboard, and gate-level simulation (GLS) against the synthesized netlist.
 - **ASIC backend** — a full synthesis-to-routing flow (synthesis, floorplan, boundary/tap cells, power grid, placement, CTS, routing, filler cells) with timing/area/power/QoR reports.
 - **FPGA live demo** — the accelerator was dropped into [Marc103/OV7670-with-FPGA-and-Demosaicing](https://github.com/Marc103/OV7670-with-FPGA-and-Demosaicing) to process a live OV7670 camera feed on a Nexys-3 board and display the result on VGA in real time.
 - **Verification GUI** — a standalone PyQt6 desktop app that runs the golden model, visualizes the memory/PE architecture, and compares Python vs. RTL output on real images.
