@@ -14,6 +14,9 @@ DVEfiles/
 ucli.key
 *.vpd
 
+# ...but keep the checked-in synthesis backend reports
+!syn/reports/*.log
+
 # Synopsys backend tool scratch
 *.svf
 *.cmd_log

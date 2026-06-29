@@ -1,0 +1,36 @@
+****************************************
+Report : area
+Design : accelerator_top
+Version: V-2023.12-SP3
+Date   : Thu May 21 11:58:54 2026
+****************************************
+
+Number of ports:                        10225
+Number of nets:                         25093
+Number of cells:                        22900
+Number of combinational cells:          12065
+Number of sequential cells:             10835
+Number of macros/black boxes:               0
+Number of buf/inv:                       1247
+Number of references:                     203
+
+Combinational area:                   7744.59
+Buf/Inv area:                          873.81
+Noncombinational area:               25471.28
+Macro/Black Box area:                    0.00
+
+Total cell area:                     33215.87
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area                  Local cell area
+                                  -------------------------------------------------------------
+Hierarchical cell                 Absolute      Percent  Combi-       Noncombi-    Black-
+                                  Total         Total    national     national     boxes         Design
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+accelerator_top                       33215.87    100.0      2527.18      1000.69          0.00  accelerator_top
+u_line_buffer/u_mem_array             29687.99     89.4      5217.41     24470.59          0.00  line_buffer_physical_memory_array
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                        7744.59     25471.28          0.00
+1

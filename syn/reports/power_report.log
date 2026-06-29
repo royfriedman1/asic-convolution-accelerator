@@ -1,0 +1,53 @@
+****************************************
+Report : power
+        -significant_digits 2
+Design : accelerator_top
+Version: V-2023.12-SP3
+Date   : Thu May 21 11:58:54 2026
+****************************************
+Information: Activity for scenario FUNC_Fast was cached, no propagation required. (POW-005)
+Mode: FUNC
+Corner: Fast
+Scenario: FUNC_Fast
+Voltage: 0.99
+Temperature: 0.00
+
+Voltage Unit         : 1V
+Capacitance Unit     : 1pF
+Time Unit            : 1ns
+Temperature Unit     : 1C
+Dynamic Power Unit   : 1nW
+Leakage Power Unit   : 1nW
+
+Switched supply net power scaling:
+scaling for leakage power
+
+Supply nets:
+VDD (power) probability 1.00 (default)
+VSS (ground) probability 1.00 (default)
+Warning: Fall toggles on pin u_control_unit/wr_addr_reg[6]/QN are impossible given input states; converted to rise toggles. (POW-069)
+
+  Cell Internal Power    = 1.11e+06 nW ( 63.2%)
+  Net Switching Power    = 6.45e+05 nW ( 36.8%)
+Total Dynamic Power      = 1.75e+06 nW (100.0%)
+
+Cell Leakage Power       = 2.30e+04 nW
+
+
+  Attributes
+  ----------
+      u  -  User defined power group
+      i  -  Includes clock pin internal power
+
+Power Group         Internal Power        Switching Power          Leakage Power            Total Power    (   %  )    Attrs
+-----------------------------------------------------------------------------------------------------------------------------
+io_pad                    0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+memory                    0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+black_box                 0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+clock_network             3.71e+05               2.94e+05               3.67e+03               6.69e+05    ( 37.7%)        i
+register                  6.89e+05               6.55e+03               1.55e+04               7.11e+05    ( 40.1%)         
+sequential                0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+combinational             4.75e+04               3.44e+05               3.91e+03               3.96e+05    ( 22.3%)         
+-----------------------------------------------------------------------------------------------------------------------------
+Total                     1.11e+06 nW            6.45e+05 nW            2.30e+04 nW            1.78e+06 nW
+1

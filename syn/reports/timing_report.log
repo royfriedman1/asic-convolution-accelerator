@@ -1,0 +1,49 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : accelerator_top
+Version: V-2023.12-SP3
+Date   : Thu May 21 11:58:56 2026
+****************************************
+
+  Startpoint: u_line_buffer/u_mem_array/row_gen[2].bank_gen[2].u_bank_icg/enable_latch_reg (positive level-sensitive latch clocked by clk')
+  Endpoint: u_line_buffer/u_mem_array/ctmi_48524 (rising clock gating-check end-point clocked by clk)
+  Mode: FUNC
+  Corner: Fast
+  Scenario: FUNC_Fast
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk' (rise edge)                           1.25      1.25
+  clock network delay (propagated)                 0.08      1.33
+
+  u_line_buffer/u_mem_array/row_gen[2].bank_gen[2].u_bank_icg/enable_latch_reg/E (LHQD1BWP30P140HVT)
+                                                   0.00      1.33 r
+  u_line_buffer/u_mem_array/row_gen[2].bank_gen[2].u_bank_icg/enable_latch_reg/Q (LHQD1BWP30P140HVT)
+                                                   0.09      1.43 r
+  u_line_buffer/u_mem_array/place_optcopt_h_inst_64877/Z (DEL075MD1BWP30P140HVT)
+                                                   0.09      1.52 r
+  u_line_buffer/u_mem_array/ctmi_48524/A2 (AN2D2BWP30P140)
+                                                   0.00      1.52 r
+  data arrival time                                          1.52
+
+  clock clk (rise edge)                            2.50      2.50
+  clock network delay (propagated)                 0.02      2.52
+  u_line_buffer/u_mem_array/ctmi_48524/A1 (AN2D2BWP30P140)
+                                                   0.00      2.52 r
+  clock uncertainty                               -0.20      2.32
+  library setup time                              -0.00      2.32
+  data required time                                         2.32
+  ------------------------------------------------------------------------
+  data required time                                         2.32
+  data arrival time                                         -1.52
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.80
+
+
+1
