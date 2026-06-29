@@ -21,13 +21,13 @@ The core takes a raster-scanned 8-bit grayscale image stream, runs a programmabl
 | | |
 |---|---|
 | Regression | **1,935,480 tests run — 0 failures** |
-| Coverage | **100%** line / toggle / FSM / condition / branch / assertion, **100%** functional coverage groups |
+| Coverage | **100%** line / toggle / FSM / condition / branch / assertion, **100%** functional coverage groups, after justified exclusions of unreachable, reserved, and non-functional cases |
 | Clock | 2.5 ns period (400 MHz), 0 setup/hold violations, positive slack on every path group |
 | Throughput | **~6,100 frames/sec** at 256x256 (1 pixel/cycle streaming, 400 MHz / 65,536 pixels per frame) |
 | Backend | Full synthesis → floorplan → placement → CTS → routing → filler cells, ~62% utilization |
-| Power | ~1.77 mW total (1.75 mW dynamic + 23 µW leakage) at sign-off corner |
+| Power | ~1.72 mW total (1.70 mW dynamic + 23 µW leakage) at sign-off corner |
 
-## Proof it works: golden model vs. real silicon-bound RTL
+## Proof it works: golden model vs. ASIC-targeted RTL
 
 The same images were run through the Python golden model and through the actual RTL simulation. Output matches bit-for-bit on real-world test images:
 
@@ -41,7 +41,7 @@ The control FSM that drives the whole pipeline (config load → line-buffer warm
   <img src="docs/fsm_diagram.png" width="520" alt="Control unit FSM: IDLE, CONFIG, WARM_UP, EXECUTE states">
 </p>
 
-100% line/toggle/FSM/condition/branch/assertion coverage was closed across every RTL block before tapeout, backed by 100% functional coverage group closure and a clean full regression (1,935,480 tests, 0 failures):
+100% line/toggle/FSM/condition/branch/assertion coverage was closed across every RTL block (after justified exclusions of unreachable, reserved, and non-functional cases), backed by 100% functional coverage group closure and a clean full regression (1,935,480 tests, 0 failures):
 
 <p align="center">
   <img src="coverage/code_coverage_final_100pct.png" width="780" alt="Code coverage report showing 100% across all metrics for every submodule">
@@ -120,9 +120,10 @@ The accelerator was integrated as a drop-in stage into the open-source [OV7670-w
 
 - FPGA camera capture/demosaicing/VGA display pipeline: [Marc103/OV7670-with-FPGA-and-Demosaicing](https://github.com/Marc103/OV7670-with-FPGA-and-Demosaicing) — the accelerator in this repo was integrated into that project for the live hardware demo.
 
-## Author
+## Authors
 
-[@royfriedman1](https://github.com/royfriedman1)
+- [@royfriedman1](https://github.com/royfriedman1)
+- Idan Marchevsky
 
 ## License
 
