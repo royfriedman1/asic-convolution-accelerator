@@ -1,0 +1,23 @@
+# Make sure GitHub's language stats classify the hardware sources correctly.
+# Without this, .v files are detected as Coq (not Verilog) by GitHub Linguist,
+# and the large synthesized netlist would otherwise dominate the repo's
+# language breakdown.
+
+*.sv     linguist-language=SystemVerilog
+*.svh    linguist-language=SystemVerilog linguist-detectable=true
+*.v      linguist-language=Verilog
+*.sdc    linguist-language=Tcl
+*.tcl    linguist-language=Tcl
+*.cud    linguist-language=Tcl
+
+# Tool-generated gate-level netlist: exclude it from language stats and diffs
+# (it is not hand-written source, just a synthesis output kept for reference).
+verif/gls/accelerator_top_synth.v linguist-generated=true linguist-language=Verilog -diff
+
+# Treat binary/media assets as binary (avoid line-ending churn, bad diffs)
+*.png   binary
+*.jpeg  binary
+*.jpg   binary
+*.mp4   binary
+*.pdf   binary
+*.ico   binary
