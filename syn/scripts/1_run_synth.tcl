@@ -45,7 +45,7 @@ analyze -format sverilog { \
     line_buffer_reordering_logic.sv \
     line_buffer_memory_bank_wrapper.sv \
     line_buffer_physical_memory_array.sv \
-    line_beffer_top.sv \
+    line_buffer_top.sv \
     control_unit.sv \
     accelerator_top.sv \
 }

@@ -21,7 +21,7 @@ line_buffer_read_address_logic.sv
 line_buffer_reordering_logic.sv
 line_buffer_memory_bank_wrapper.sv
 line_buffer_write_steering_logic.sv
-line_beffer_top.sv
+line_buffer_top.sv
 configuration_register_bank.sv
 processing_element_sva.sv
 processing_element.sv
