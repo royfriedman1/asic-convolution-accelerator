@@ -2,7 +2,7 @@
 
 A configurable 3x3 convolution / feature-detector hardware accelerator, taken from RTL design through full verification, ASIC backend synthesis, and a live FPGA demo.
 
-The core takes a raster-scanned 8-bit grayscale image stream, runs a programmable 3x3 kernel (weights, bias, threshold) over a sliding window using an interleaved triple-bank line-buffer memory, and outputs a 1-bit classification per pixel (`MAC > threshold`).
+The core takes a raster-scanned 8-bit grayscale image stream, runs a programmable 3x3 kernel (weights, bias, threshold) over a sliding window using an interleaved triple-bank line-buffer memory, and outputs a 1-bit classification per pixel (`MAC > threshold`) at 1 pixel/cycle — **~6,100 256x256 frames/sec** at the sign-off clock frequency (400 MHz).
 
 <p align="center">
   <img src="docs/top_level_arch.png" width="780" alt="Top-level block diagram: Control Unit, Memory Subsystem, Configuration Bank, Processing Element">
@@ -23,6 +23,7 @@ The core takes a raster-scanned 8-bit grayscale image stream, runs a programmabl
 | Regression | **1,935,480 tests run — 0 failures** |
 | Coverage | **100%** line / toggle / FSM / condition / branch / assertion, **100%** functional coverage groups |
 | Clock | 2.5 ns period (400 MHz), 0 setup/hold violations, positive slack on every path group |
+| Throughput | **~6,100 frames/sec** at 256x256 (1 pixel/cycle streaming, 400 MHz / 65,536 pixels per frame) |
 | Backend | Full synthesis → floorplan → placement → CTS → routing → filler cells, ~62% utilization |
 | Power | ~1.77 mW total (1.75 mW dynamic + 23 µW leakage) at sign-off corner |
 
