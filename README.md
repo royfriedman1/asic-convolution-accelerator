@@ -16,6 +16,16 @@ The core takes a raster-scanned 8-bit grayscale image stream, runs a programmabl
 - **FPGA live demo** — the accelerator was dropped into [Marc103/OV7670-with-FPGA-and-Demosaicing](https://github.com/Marc103/OV7670-with-FPGA-and-Demosaicing) to process a live OV7670 camera feed on a Nexys-3 board and display the result on VGA in real time.
 - **Verification GUI** — a standalone PyQt6 desktop app that runs the golden model, visualizes the memory/PE architecture, and compares Python vs. RTL output on real images.
 
+## Key results
+
+| | |
+|---|---|
+| Regression | **1,935,480 tests run — 0 failures** |
+| Coverage | **100%** line / toggle / FSM / condition / branch / assertion, **100%** functional coverage groups |
+| Clock | 2.5 ns period (400 MHz), 0 setup/hold violations, positive slack on every path group |
+| Backend | Full synthesis → floorplan → placement → CTS → routing → filler cells, ~62% utilization |
+| Power | ~1.77 mW total (1.75 mW dynamic + 23 µW leakage) at sign-off corner |
+
 ## Proof it works: golden model vs. real silicon-bound RTL
 
 The same images were run through the Python golden model and through the actual RTL simulation. Output matches bit-for-bit on real-world test images:
@@ -30,10 +40,16 @@ The control FSM that drives the whole pipeline (config load → line-buffer warm
   <img src="docs/fsm_diagram.png" width="520" alt="Control unit FSM: IDLE, CONFIG, WARM_UP, EXECUTE states">
 </p>
 
-100% line/toggle/FSM/condition/branch/assertion coverage was closed across every RTL block before tapeout:
+100% line/toggle/FSM/condition/branch/assertion coverage was closed across every RTL block before tapeout, backed by 100% functional coverage group closure and a clean full regression (1,935,480 tests, 0 failures):
 
 <p align="center">
   <img src="coverage/code_coverage_final_100pct.png" width="780" alt="Code coverage report showing 100% across all metrics for every submodule">
+</p>
+<p align="center">
+  <img src="coverage/functional_coverage_groups.png" width="780" alt="Functional coverage groups at 100% across all bins">
+</p>
+<p align="center">
+  <img src="coverage/regression_final_summary.png" width="600" alt="Final regression summary: 1,935,480 total tests, 0 failed">
 </p>
 
 The design was carried all the way through place & route to a final physical layout:
@@ -102,6 +118,10 @@ The accelerator was integrated as a drop-in stage into the open-source [OV7670-w
 ## Credits
 
 - FPGA camera capture/demosaicing/VGA display pipeline: [Marc103/OV7670-with-FPGA-and-Demosaicing](https://github.com/Marc103/OV7670-with-FPGA-and-Demosaicing) — the accelerator in this repo was integrated into that project for the live hardware demo.
+
+## Author
+
+[@royfriedman1](https://github.com/royfriedman1)
 
 ## License
 
