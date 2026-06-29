@@ -1,0 +1,28 @@
+================================================
+  ASIC Verification Suite — Run Summary
+================================================
+
+Date / Time  : 2026-06-19  13:38:24
+Source       : WhatsApp Video 2026-06-19 at 12.48.54.mp4
+Mode         : Video
+Frames       : 219
+Output size  : 254 x 254 pixels per frame
+
+Convolution kernel (3x3):
+  [    0     0     0 ]
+  [    0    30     0 ]
+  [    0     0     0 ]
+
+Bias         : 0  (0x00)
+Threshold    : 3000  (0x00BB8)
+
+Active pixels: 7,290,076 / 14,129,004  (51.60%)
+
+Folder layout:
+  stimulus/             — input .hex files  ($readmemh)
+  golden/               — scoreboard .txt  (0/1 per line)
+  vectors/              — full_vectors .txt  (pixels|weights|bias|TH|sum|bit)
+  run_params.json       — kernel config (auto-loaded by Analyst)
+  visual_input/         — PNG images (source input frames)
+  visual_golden/        — PNG images (golden output frames)
+  actual/               — DUT output .txt files (filled by testbench)

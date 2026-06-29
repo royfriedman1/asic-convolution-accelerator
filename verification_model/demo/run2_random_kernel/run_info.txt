@@ -1,0 +1,27 @@
+================================================
+  ASIC Verification Suite — Run Summary
+================================================
+
+Date / Time  : 2026-06-28  17:52:35
+Mode         : Video
+Frames       : 30
+Output size  : 254 x 254 pixels per frame
+
+Convolution kernel (3x3):
+  [  181   201    74 ]
+  [  246   248   191 ]
+  [   58    89     0 ]
+
+Bias         : 186  (0xBA)
+Threshold    : 362072  (0x58658)
+
+Active pixels: 343,437 / 1,935,480  (17.74%)
+
+Folder layout:
+  stimulus/             — input .hex files  ($readmemh)
+  golden/               — scoreboard .txt  (0/1 per line)
+  vectors/              — full_vectors .txt  (pixels|weights|bias|TH|sum|bit)
+  run_params.json       — kernel config (auto-loaded by Analyst)
+  visual_input/         — PNG images (source input frames)
+  visual_golden/        — PNG images (golden output frames)
+  actual/               — DUT output .txt files (filled by testbench)

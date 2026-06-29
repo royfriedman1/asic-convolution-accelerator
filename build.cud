@@ -1,0 +1,58 @@
+# The Compilation Unit Definition (CUD) is where files and folders that make the compilation unit are specified.
+# The following can be specified directly (without any flags):
+#    Verilog source files
+#    Other CUD files (this allows hierarchical structures)
+#    Folders (results in all of its member Verilog source files being added to the compilation unit)
+# Paths can be relative to project roots, relative to the working directory, or absolute.
+# Each path or command, should be in a separate line.
+# For content assistance which shows all available flags, type '-' in a new line outside the commented area, and press CTRL+SPACE.
+
++incdir+.
+
+///*
+// --- Top Level ---
+accelerator_pkg.sv
+control_unit_sva.sv
+control_unit.sv
+line_buffer_write_steering_logic_sva.sv
+latch_based_icg.sv
+line_buffer_physical_memory_array.sv
+line_buffer_read_address_logic.sv
+line_buffer_reordering_logic.sv
+line_buffer_memory_bank_wrapper.sv
+line_buffer_write_steering_logic.sv
+line_beffer_top.sv
+configuration_register_bank.sv
+processing_element_sva.sv
+processing_element.sv
+accelerator_top.sv
+accelerator_if.sv
+accelerator_tb_pkg.sv
+accelerator_tb.sv
+//*/
+
+
+// --- Configuration Register Bank ---
+/*
+configuration_register_bank.sv
+configuration_register_bank_tb.sv
+*/
+
+// --- Control Unit ---
+/*
+control_unit_sva.sv
+control_unit.sv
+control_unit_tb.sv
+*/
+
+// --- Processing_Element ---
+/*
+processing_element.sv
+processing_element_if.sv
+processing_element_tb_pkg.sv
+processing_element_tb.sv
+/*
+
+
+
+

@@ -1,0 +1,26 @@
+# The Compilation Unit Definition (CUD) is where files and folders that make the compilation unit are specified.
+# The following can be specified directly (without any flags):
+#    Verilog source files
+#    Other CUD files (this allows hierarchical structures)
+#    Folders (results in all of its member Verilog source files being added to the compilation unit)
+# Paths can be relative to project roots, relative to the working directory, or absolute.
+# Each path or command, should be in a separate line.
+# For content assistance which shows all available flags, type '-' in a new line outside the commented area, and press CTRL+SPACE.
+
++incdir+.
+
+// --- 1. Packages ---
+accelerator_pkg.sv
+accelerator_tb_pkg.sv
+
+// --- 2. TSMC Simulation Models (Loaded as Libraries using -v) ---
+-v /data/tsmc/28HPCPMMWAVE/dig_libs/TSMCHOME/digital/Front_End/verilog/tcbn28hpcplusbwp30p140_110a/tcbn28hpcplusbwp30p140.v
+-v /data/tsmc/28HPCPMMWAVE/dig_libs/TSMCHOME/digital/Front_End/verilog/tcbn28hpcplusbwp30p140hvt_110a/tcbn28hpcplusbwp30p140hvt.v
+-v /data/tsmc/28HPCPMMWAVE/dig_libs/TSMCHOME/digital/Front_End/verilog/tcbn28hpcplusbwp30p140lvt_110a/tcbn28hpcplusbwp30p140lvt.v
+
+// --- 3. The Synthesized Netlist ---
+accelerator_top_synth.v
+
+// --- 4. Interfaces & Testbench ---
+accelerator_if.sv
+accelerator_tb.sv

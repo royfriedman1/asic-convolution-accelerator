@@ -1,0 +1,42 @@
+# VCS / Verdi simulation artifacts
+simv*
+csrc*
+*.log
+*.fsdb
+*.rc
+*.key
+*.vdb
+*.conf
+verdi_config_file
+verdiLog
+comp_error.log
+DVEfiles/
+ucli.key
+*.vpd
+
+# Synopsys backend tool scratch
+*.svf
+*.cmd_log
+work/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+
+# PyInstaller output
+verification_model/build/
+verification_model/dist/
+
+# Local tool/editor settings
+.claude/
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
