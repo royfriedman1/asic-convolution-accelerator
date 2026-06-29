@@ -4,6 +4,10 @@ A configurable 3x3 convolution / feature-detector hardware accelerator, taken fr
 
 The core takes a raster-scanned 8-bit grayscale image stream, runs a programmable 3x3 kernel (weights, bias, threshold) over a sliding window using an interleaved triple-bank line-buffer memory, and outputs a 1-bit classification per pixel (`MAC > threshold`).
 
+<p align="center">
+  <img src="docs/top_level_arch.png" width="780" alt="Top-level block diagram: Control Unit, Memory Subsystem, Configuration Bank, Processing Element">
+</p>
+
 ## Highlights
 
 - **RTL** — synthesizable SystemVerilog: control FSM, interleaved 3-bank line buffer (write steering / reordering / read address logic), processing element (MAC), configuration register bank.
@@ -11,6 +15,40 @@ The core takes a raster-scanned 8-bit grayscale image stream, runs a programmabl
 - **ASIC backend** — a full synthesis-to-routing flow (synthesis, floorplan, boundary/tap cells, power grid, placement, CTS, routing, filler cells) with timing/area/power/QoR reports.
 - **FPGA live demo** — the accelerator was dropped into [Marc103/OV7670-with-FPGA-and-Demosaicing](https://github.com/Marc103/OV7670-with-FPGA-and-Demosaicing) to process a live OV7670 camera feed on a Nexys-3 board and display the result on VGA in real time.
 - **Verification GUI** — a standalone PyQt6 desktop app that runs the golden model, visualizes the memory/PE architecture, and compares Python vs. RTL output on real images.
+
+## Proof it works: golden model vs. real silicon-bound RTL
+
+The same images were run through the Python golden model and through the actual RTL simulation. Output matches bit-for-bit on real-world test images:
+
+<p align="center">
+  <img src="coverage/real_image_verification_python_vs_rtl.png" width="780" alt="Side-by-side: original input image, golden-model output, RTL chip output — identical">
+</p>
+
+The control FSM that drives the whole pipeline (config load → line-buffer warm-up → real-time execute):
+
+<p align="center">
+  <img src="docs/fsm_diagram.png" width="520" alt="Control unit FSM: IDLE, CONFIG, WARM_UP, EXECUTE states">
+</p>
+
+100% line/toggle/FSM/condition/branch/assertion coverage was closed across every RTL block before tapeout:
+
+<p align="center">
+  <img src="coverage/code_coverage_final_100pct.png" width="780" alt="Code coverage report showing 100% across all metrics for every submodule">
+</p>
+
+The design was carried all the way through place & route to a final physical layout:
+
+<p align="center">
+  <img src="docs/final_layout.png" width="380" alt="Final ASIC physical layout after place and route">
+</p>
+
+And finally brought up live on an FPGA, processing a real camera feed end-to-end:
+
+<p align="center">
+  <img src="FPGA/demo/board_setup.jpeg" width="380" alt="OV7670 camera wired into a Nexys-3 FPGA board with VGA output, running the accelerator live">
+</p>
+
+(full clip: [`FPGA/demo/fpga_demo.mp4`](FPGA/demo/fpga_demo.mp4))
 
 ## Repository structure
 
