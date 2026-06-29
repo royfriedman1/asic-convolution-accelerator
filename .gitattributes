@@ -14,6 +14,12 @@
 # (it is not hand-written source, just a synthesis output kept for reference).
 verif/gls/accelerator_top_synth.v linguist-generated=true linguist-language=Verilog -diff
 
+# The Python GUI is a supporting verification tool, not the project's core
+# deliverable (the hardware accelerator). Its PyQt6 UI code is verbose enough
+# to otherwise dominate the repo's language stats by raw byte count, so keep
+# the language bar focused on the actual hardware design.
+verification_model/** linguist-documentation=true
+
 # Treat binary/media assets as binary (avoid line-ending churn, bad diffs)
 *.png   binary
 *.jpeg  binary
